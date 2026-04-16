@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { generateSOP, analyzeTask } from '../services/api.js';
+import { generateSOP, analyzeTask } from '../lib/api.js';
 
 const PRESET_TASKS = [
   { name: 'PCB Assembly',        domain: 'Electronics Manufacturing',   icon: '⬡' },
