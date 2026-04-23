@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# GhostSOP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GhostSOP is an AI-powered Standard Operating Procedure (SOP) generator and management platform. It allows users to quickly generate, document, and manage structured SOPs for various industries such as Electronics Manufacturing, Automotive, Pharmaceuticals, and Heavy Industry.
 
-Currently, two official plugins are available:
+The project acts as an AI "Ghost SOP Agent" that analyzes tasks, determines risk levels, references relevant industry standards, and automatically compiles detailed step-by-step procedures and quality checkpoints.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **AI-Powered SOP Generation (`CapturePage`)**:
+  - Input a task name, industry domain, and operator name to instantly generate comprehensive SOPs.
+  - "Quick Analysis" provides an upfront estimate of risk levels, suggested steps, and relevant industry standards.
+  - Real-time agent generation logs show progress.
+  - Quick presets for common tasks like PCB Assembly, Valve Torque Check, and Blister Packing.
+- **SOP Library (`SOPLibraryPage`)**:
+  - A centralized dashboard to view, search, and manage all generated SOPs.
+  - Track high-level statistics including total SOPs, domains covered, and total steps documented.
+- **Detailed SOP View (`SOPDetailPage`)**:
+  - View the complete generated procedure, including individual steps and quality gates.
+- **Deviation Tracking (`DeviationPage`)**:
+  - Record and manage operational deviations from standard procedures.
+- **Contextual AI Chat (`ChatPage`)**:
+  - Interact with an AI assistant for questions or clarifications regarding the active SOP.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend Framework**: React 19
+- **Build Tool**: Vite
+- **Styling**: Vanilla CSS with custom design tokens for a sleek, dark-mode focused UI.
+- **Language**: JavaScript (ES modules) / JSX
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+1. Clone the repository and navigate to the project directory:
+   ```bash
+   cd ghostsop
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and visit the local URL provided by Vite (usually `http://localhost:5173`).
+
+### Building for Production
+
+To build the project for production, run:
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This will output optimized static files to the `dist` directory.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `src/components/Layout.jsx`: Main application wrapper and navigation layout.
+- `src/pages/`: Contains the main application views (`CapturePage`, `SOPLibraryPage`, `SOPDetailPage`, `DeviationPage`, `ChatPage`).
+- `src/lib/api.js`: Handles API interactions and AI agent communication.
+- `src/App.jsx`: Main routing and state management component.
+- `src/index.css`: Global styles and design system variables.
